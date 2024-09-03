@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react'
+import { View, Text, Button } from 'react-native'
 
-export default function App() {
+function App() {
+  const [name, setName] = useState('')
+
+  function pegarNome() {
+    setName('Arthur')
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ marginTop: 50 }}>
+      <text style={{ fontSize: 24 }}>{name}</text>
+      <Button
+        title='save'
+        onPress={ () => pegarNome() }
+      />
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
+/*
+function Header() {
+  let name = 'Arthur N'
+  return <Text style={{ fontSize: 24, padding: 16 }}>{name}</Text>
+}
+
+function LogoImage() {
+  let img = ''
+  return {
+    <Image
+  source = {{ uri: img }
+}
+style = {{ width: '100%', height: 300 }}
+  }
+}
+*/
